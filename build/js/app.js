@@ -35,7 +35,8 @@ $(document).ready(function(){
     var newAlarm = new Alarm(inputAlarm);
     var compare = function(){
       if(newAlarm.compareTime() === true) {
-        alert("Time's up!");
+        var audio = new Audio('../morning.mp3');
+        audio.play();
       }
     };
     setInterval(compare, 1000);
