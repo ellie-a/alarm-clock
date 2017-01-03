@@ -1,8 +1,16 @@
 function Alarm(setTime, currentTime) {
-  this.setTime = setTime;
+  this.setTime = new Date(moment().format('YYYY-MM-DD') + ' ' + setTime);
   this.currentTime = currentTime;
 }
-Alarm.prototype.setAlarm = function() {
 
-  var difference =
-}
+Alarm.prototype.compareTime = function() {
+  var alarmOn = false;
+
+  console.log(moment(this.setTime).format('hh:mm a'));
+  if(moment().format('hh:mm a') === moment(this.setTime).format('hh:mm a'))
+  {
+    alarmOn = true;
+  }
+  return alarmOn;
+};
+exports.alarmModule = Alarm;
