@@ -6,8 +6,8 @@ function Alarm(setTime) {
 Alarm.prototype.compareTime = function() {
   var alarmOn = false;
 
-  console.log(moment(this.setTime).format('hh:mm a'));
-  if(moment().format('hh:mm a') === moment(this.setTime).format('hh:mm a'))
+  console.log(moment().format('hh:mm:ss a'));
+  if(moment().format('hh:mm:ss a') === moment(this.setTime).format('hh:mm:ss a'))
   {
     alarmOn = true;
   }

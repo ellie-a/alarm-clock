@@ -4,7 +4,7 @@ $(document).ready(function(){
   var currentMoment = moment().format('hh:mm:ss a');
   $('#time').text(currentMoment);
   var clock = function() {
-    currentMoment = moment().format('hh:mm a');
+    currentMoment = moment().format('hh:mm:ss a');
     $('#time').text(currentMoment);
   };
   setInterval(clock, 1000);
@@ -24,8 +24,10 @@ $(document).ready(function(){
     $('.snooze').click(function(){
       audio.pause();
       audio.currentTime = 0;
-      setTimeOut(function(){ audio.play();} , 30000);
+      setTimeOut(function(){audio.play();}, 6000);
     });
-    setInterval(compare, 10000);
+    setInterval(compare, 1000);
   });
 });
+
+//snooze doesnt refresh setTimeOut is not defined
