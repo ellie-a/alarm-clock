@@ -13,7 +13,5 @@ Alarm.prototype.compareTime = function() {
   }
   return alarmOn;
 };
-// Alarm.prototype.playAlarm = function(){
-//
-// };
+
 exports.alarmModule = Alarm;

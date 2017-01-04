@@ -24,10 +24,7 @@ $(document).ready(function(){
     $('.snooze').click(function(){
       audio.pause();
       audio.currentTime = 0;
-      // var playAudio = function(){
-      //   audio.play();
-      // };
-      // setTimeOut(audio.play(), 5000);
+      setTimeOut(function(){ audio.play();} , 30000);
     });
     setInterval(compare, 10000);
   });
