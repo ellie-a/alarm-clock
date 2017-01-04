@@ -1,6 +1,6 @@
-function Alarm(setTime, currentTime) {
+function Alarm(setTime) {
   this.setTime = new Date(moment().format('YYYY-MM-DD') + ' ' + setTime);
-  this.currentTime = currentTime;
+  this.setTime.setSeconds(0);
 }
 
 Alarm.prototype.compareTime = function() {
@@ -13,4 +13,7 @@ Alarm.prototype.compareTime = function() {
   }
   return alarmOn;
 };
+// Alarm.prototype.playAlarm = function(){
+//
+// };
 exports.alarmModule = Alarm;

@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-function Alarm(setTime, currentTime) {
+function Alarm(setTime) {
   this.setTime = new Date(moment().format('YYYY-MM-DD') + ' ' + setTime);
-  this.currentTime = currentTime;
+  this.setTime.setSeconds(0);
 }
 
 Alarm.prototype.compareTime = function() {
@@ -14,6 +14,9 @@ Alarm.prototype.compareTime = function() {
   }
   return alarmOn;
 };
+// Alarm.prototype.playAlarm = function(){
+//
+// };
 exports.alarmModule = Alarm;
 
 },{}],2:[function(require,module,exports){
@@ -33,13 +36,22 @@ $(document).ready(function(){
     var inputAlarm = $('#alarm-time').val();
     console.log(inputAlarm);
     var newAlarm = new Alarm(inputAlarm);
+    var audio = new Audio('../morning.mp3');
+
     var compare = function(){
       if(newAlarm.compareTime() === true) {
-        var audio = new Audio('../morning.mp3');
         audio.play();
       }
     };
-    setInterval(compare, 1000);
+    $('.snooze').click(function(){
+      audio.pause();
+      audio.currentTime = 0;
+      // var playAudio = function(){
+      //   audio.play();
+      // };
+      // setTimeOut(audio.play(), 5000);
+    });
+    setInterval(compare, 10000);
   });
 });
 

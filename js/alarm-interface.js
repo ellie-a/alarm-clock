@@ -14,12 +14,21 @@ $(document).ready(function(){
     var inputAlarm = $('#alarm-time').val();
     console.log(inputAlarm);
     var newAlarm = new Alarm(inputAlarm);
+    var audio = new Audio('../morning.mp3');
+
     var compare = function(){
       if(newAlarm.compareTime() === true) {
-        var audio = new Audio('../morning.mp3');
         audio.play();
       }
     };
-    setInterval(compare, 1000);
+    $('.snooze').click(function(){
+      audio.pause();
+      audio.currentTime = 0;
+      // var playAudio = function(){
+      //   audio.play();
+      // };
+      // setTimeOut(audio.play(), 5000);
+    });
+    setInterval(compare, 10000);
   });
 });
