@@ -11,7 +11,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone https://github.com/ellie-a/questions-ember` this repository
+* `git clone https://github.com/ellie-a/alarm-clock/tree/master` this repository
 * `cd question-forum`
 * `npm install`
 * `bower install`
